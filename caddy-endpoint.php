@@ -2,7 +2,8 @@
     function endsWith( $str, $sub ) {
         return ( substr( $str, strlen( $str ) - strlen( $sub ) ) == $sub );
     }
-    if(endsWith($_GET['domain'], "gomagcaddy.rzv.me")) {
-        http_response_code(204)
+    if(!endsWith($_GET['domain'], "gomagcaddy.rzv.me")) {
+        header('HTTP/1.0 403 Forbidden');
+        echo 'You are forbidden!';
     }
-    http_response_code(404);
+    echo 'OK';
